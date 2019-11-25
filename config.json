@@ -1,0 +1,12 @@
+{
+    "consumer":{
+        "uuid":"d4328bc2-8ed4-4a7a-bc0a-633dc3b0044f",
+        "cnpj":"55.622.128/0001-89"
+    },
+    "api":{
+        "site_id":"MLB",
+        "endpoint": "https://api.mercadolibre.com/",
+        "sites": "${ENDPOINT}/sites/${SITE_ID}/",
+        "categories": "${ENDPOINT}/sites/${SITE_ID}/categories"
+    }
+}
