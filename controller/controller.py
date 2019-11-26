@@ -1,4 +1,5 @@
 from usecases.configusecases import ConfigUseCases
+from services.meliapiservices import MeLiApiService
 import time
 class HubController:
     def __init__(self):
@@ -6,10 +7,15 @@ class HubController:
     
     def startMainLoop(self, configDict):
         iteration = 1
-        while 1:
-            c = ConfigUseCases()
-            c.create(configDict)
+        while 1==1:
+            useCases = ConfigUseCases()
+            useCases.create(configDict)
             print("#{} Main HUB loop started".format(iteration))
-            print("# Config HUB -- {}".format(c.toString()))
+            print("# Config HUB -- {}".format(useCases.toString()))
+
+            print("# Starting service - sites")
+            servicesApi = MeLiApiService()
+            response = servicesApi.sites(useCases)
+            print("# Service HUB -- {}".format(response))
             iteration = iteration + 1
             time.sleep(5)

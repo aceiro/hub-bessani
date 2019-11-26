@@ -7,6 +7,7 @@
         "site_id":"MLB",
         "endpoint": "https://api.mercadolibre.com/",
         "sites": "${ENDPOINT}/sites/${SITE_ID}/",
-        "categories": "${ENDPOINT}/sites/${SITE_ID}/categories"
+        "categories": "${ENDPOINT}/sites/${SITE_ID}/categories",
+        "catalog_listing": "${ENDPOINT}/sites/${SITE_ID}/search?q=${PRODUCT_DESC}"
     }
 }
