@@ -17,5 +17,11 @@ class HubController:
             servicesApi = MeLiApiService()
             response = servicesApi.sites(useCases)
             print("# Service HUB -- {}".format(response))
+
+            print("# Starting service - categories")
+
+            response = servicesApi.categories(useCases)
+            print("# Service HUB -- {}".format(response))
+
             iteration = iteration + 1
             time.sleep(5)
