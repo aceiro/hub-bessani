@@ -15,12 +15,15 @@ class HubController:
 
             print("# Starting service - sites")
             servicesApi = MeLiApiService()
-            response = servicesApi.sites(useCases)
-            print("# Service HUB -- {}".format(response))
+            # response = servicesApi.sites(useCases)
+            # print("# Service HUB -- {}".format(response))
 
-            print("# Starting service - categories")
+            # print("# Starting service - categories")
+            # response = servicesApi.categories(useCases)
+            # print("# Service HUB -- {}".format(response))
 
-            response = servicesApi.categories(useCases)
+            print("# Starting service - catalog listing")
+            response = servicesApi.catalogListByQuery(useCases)
             print("# Service HUB -- {}".format(response))
 
             iteration = iteration + 1

@@ -5,13 +5,22 @@ from usecases.configusecases import ConfigUseCases
 class ServiceBase:
     def __init__(self):
         pass
-    def buildRouteAndGetHttp(self, useCase = ConfigUseCases(), routeApi = ""):
+    def buildRouteAndGetHttp(self, useCase = ConfigUseCases(), routeApi = "", query = None):
         response = {}
         try:
             endpoint = str(useCase.meliApi.api['endpoint'])            
             site_id  = str(useCase.meliApi.api['site_id'])
             routeApi = routeApi.replace("${ENDPOINT}", endpoint)
             routeApi = routeApi.replace("${SITE_ID}", site_id)
+
+            #######################################
+            # verifica se existe query para ser 
+            # usada
+            #######################################
+            if len(query) > 0:
+                routeApi = routeApi.replace("${PRODUCT_DESC}", query)
+
+
             #######################################
             # chama ML API remota
             #######################################

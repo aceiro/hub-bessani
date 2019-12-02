@@ -14,3 +14,8 @@ class MeLiApiService(ServiceBase):
     def sites(self, useCase = ConfigUseCases()):
         routeSites = str(useCase.meliApi.api['sites'])
         return self.buildRouteAndGetHttp(useCase, routeSites)
+
+    def catalogListByQuery(self, useCase = ConfigUseCases()):
+        routeSites = str(useCase.meliApi.api['catalog_listing'])
+        query = "Motorola"
+        return self.buildRouteAndGetHttp(useCase, routeSites, query)
