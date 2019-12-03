@@ -4,7 +4,10 @@ import time
 class HubController:
     def __init__(self):
         pass
-    
+    def printCsv(self, products = []):
+        for product in products:
+            print("{},{}".format(product['price'], product['description']))
+
     def startMainLoop(self, configDict):
         iteration = 1
         while 1==1:
@@ -15,16 +18,16 @@ class HubController:
 
             print("# Starting service - sites")
             servicesApi = MeLiApiService()
-            # response = servicesApi.sites(useCases)
-            # print("# Service HUB -- {}".format(response))
-
-            # print("# Starting service - categories")
-            # response = servicesApi.categories(useCases)
-            # print("# Service HUB -- {}".format(response))
-
-            print("# Starting service - catalog listing")
-            response = servicesApi.catalogListByQuery(useCases)
-            print("# Service HUB -- {}".format(response))
+            for service in configDict['services']:
+                if service == "sites":
+                    response = servicesApi.sites(useCases)
+                elif service == "categories":
+                    response = servicesApi.categories(useCases)
+                elif service == "catalog_listing":
+                    response = servicesApi.catalogListByQuery(useCases)
+                    self.printCsv(response)
+                #print("# Starting {}".format(service))      
+                #print("# Service HUB -- {}".format(response))
 
             iteration = iteration + 1
             time.sleep(5)

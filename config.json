@@ -1,7 +1,12 @@
 {
+    "services":["catalog_listing"],
     "consumer":{
         "uuid":"d4328bc2-8ed4-4a7a-bc0a-633dc3b0044f",
-        "cnpj":"55.622.128/0001-89"
+        "cnpj":"55.622.128/0001-89",
+        "product_detail_type": "JSON",
+        "product_detail": "Motorola",
+        "product_limit" : 10
+
     },
     "api":{
         "site_id":"MLB",

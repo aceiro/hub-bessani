@@ -17,7 +17,7 @@ class ServiceBase:
             # verifica se existe query para ser 
             # usada
             #######################################
-            if len(query) > 0:
+            if query!=None and len(query) > 0:
                 routeApi = routeApi.replace("${PRODUCT_DESC}", query)
 
 
