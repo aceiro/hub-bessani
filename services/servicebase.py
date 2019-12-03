@@ -24,14 +24,15 @@ class ServiceBase:
             #######################################
             # chama ML API remota
             #######################################
-            categories = requests.get(routeApi).text
+            response_api = requests.get(routeApi).text
             
             #######################################
             # monta o json
             #######################################
-            message = json.dumps(categories, sort_keys=True)            
-            response['status']  = 200
-            response['message'] = message
+            str_message = json.dumps(response, sort_keys=True)            
+            response['status']   = 200
+            response['message']  = str_message
+            response['response_api'] = response_api
         except:
             response = {'status':500, 'message': 'Fail request'}
             print("Error to process URL")

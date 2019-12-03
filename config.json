@@ -8,6 +8,6 @@
         "endpoint": "https://api.mercadolibre.com/",
         "sites": "${ENDPOINT}/sites/${SITE_ID}/",
         "categories": "${ENDPOINT}/sites/${SITE_ID}/categories",
-        "catalog_listing": "${ENDPOINT}/sites/${SITE_ID}/search?q=${PRODUCT_DESC}&limit=1"
+        "catalog_listing": "${ENDPOINT}/sites/${SITE_ID}/search?q=${PRODUCT_DESC}&limit=5"
     }
 }

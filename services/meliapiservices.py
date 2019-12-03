@@ -18,4 +18,16 @@ class MeLiApiService(ServiceBase):
     def catalogListByQuery(self, useCase = ConfigUseCases()):
         routeSites = str(useCase.meliApi.api['catalog_listing'])
         query = "Motorola"
-        return self.buildRouteAndGetHttp(useCase, routeSites, query)
+
+        response = self.buildRouteAndGetHttp(useCase, routeSites, query)
+        response_api  = json.loads(response["response_api"])
+        results       = response_api['results']
+        products = []
+        for item in results:
+            price = item['price']
+            description = r''.join(item['title']).encode('utf-8').strip()
+            product = {}
+            product['price'] = price
+            product['description'] = description
+            products.append(product)        
+        return products
